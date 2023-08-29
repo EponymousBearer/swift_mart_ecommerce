@@ -49,22 +49,6 @@ export const GET = async (request: NextRequest) => {
   }
 };
 
-// export async function DELETE(req: NextRequest) {
-//   let url = req.nextUrl.searchParams;
-//   try {
-//       if (url.has("product_id") && url.has("user_id")) {
-//           let response = await db.delete(cartColumns).
-//               where(
-//                   and(eq(cartColumns.product_id, (url.get("product_id") as string)), eq(cartColumns.user_id, (url.get("user_id") as string)))
-//               ).returning()
-//           return NextResponse.json({ response });
-//       }
-//   } catch (error) {
-//       console.log("error : ", (error as { message: string }).message)
-//       return NextResponse.json({ error })
-//   }
-// } 
-
 export const DELETE = async (request: NextRequest) => {
   const req = await request.json();
   try {

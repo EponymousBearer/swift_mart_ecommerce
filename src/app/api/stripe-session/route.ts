@@ -9,11 +9,9 @@ const stripe = new Stripe(key, {
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  // console.log(body.products.length);
+  console.log(body)
   try {
     if (body.products.length > 0) {
-      // console.log("abc")
-      // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
         submit_type: "pay",
         mode: "payment",
@@ -27,7 +25,7 @@ export async function POST(request: NextRequest) {
           return {
             price_data: {
               currency: "usd",
-              unit_amount: item.product_price * 100,
+              unit_amount: (item.product_price * 100) / item.product_quantity,
               product_data: {
                 name: item.product_title,
               },

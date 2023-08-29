@@ -1,7 +1,5 @@
-import { client } from "@/lib/sanityClient";
 import React from "react";
 import FetchData from "../../../sanity/FetchData";
-import { urlForImage } from "../../../sanity/lib/image";
 import Link from "next/link"
 import ProductCart from "@/components/ProductCart";
 

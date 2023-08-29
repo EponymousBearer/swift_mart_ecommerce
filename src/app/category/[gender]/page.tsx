@@ -1,8 +1,5 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable react/jsx-key */
 import React from "react";
 import FetchData from "../../../../sanity/FetchData";
-import Link from "next/link";
 import ProductCart from "@/components/ProductCart";
 
 interface IProductImage {

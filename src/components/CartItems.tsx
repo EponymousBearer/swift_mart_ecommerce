@@ -1,12 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @next/next/no-async-client-component */
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/jsx-key */
+
 "use client";
 import getStripePromise from "@/lib/stripe";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { cookies } from "next/headers";
 import Wrapper from "@/components/shared/Wrapper";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag, Trash2 } from "lucide-react";
@@ -22,7 +19,7 @@ export default function CartItems() {
   );
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/cart?user_id=${userId}`)
+    fetch(`api/cart?user_id=${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -36,28 +33,6 @@ export default function CartItems() {
       });
   }, [isSignedIn, userId, state]);
 
-  // const handleDelete = async (productId: string | number) => {
-  //   console.log("clicked");
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:3000/api/cart?product_id=${productId}&user_id=${userId}`,
-  //       {
-  //         method: "DELETE",
-  //       }
-  //     );
-
-  //     if (response.ok) {
-  //       // Refresh the page or update the cart context if needed
-  //       window.location.reload();
-  //       console.log("Product deleted successfully");
-  //     } else {
-  //       console.log("Error deleting product");
-  //     }
-  //   } catch (error) {
-  //     console.log("Error:", error);
-  //   }
-  // };
-
   const handleCheckout = async () => {
     const stripePromise = await getStripePromise();
     const response = await fetch("api/stripe-session/", {
@@ -66,7 +41,6 @@ export default function CartItems() {
       cache: "no-cache",
       body: JSON.stringify({
         products: products,
-        quantities: quantities,
       }),
     });
     const data = await response.json();
