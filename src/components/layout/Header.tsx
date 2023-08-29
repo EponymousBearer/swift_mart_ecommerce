@@ -1,19 +1,16 @@
-"use client";
-
 import logo from "/public/DineMarketLogo.webp";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ShoppingCart, Search, Menu } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 import { Input } from "../ui/input";
 import Wrapper from "../shared/Wrapper";
-import { useCart } from "../CartContext";
-
+import CartButton from "../CartButton";
+import { SignInButton } from "@clerk/nextjs";
+import SignInOrOutButton from "../SignInOrOutButton";
 
 const Header = () => {
-  // const [cartItemNumber, setcartItemNumber] = useState<number>(0);
-  const { cartItemCount } = useCart();
   return (
     <Wrapper>
       <div className="flex items-center justify-between py-8 lg:py-8">
@@ -47,13 +44,9 @@ const Header = () => {
             />
           </div>
           <div className="relative h-11 w-11 rounded-full flex justify-center items-center bg-gray-200 hover:scale-125 transition">
-            <Link href={"/cart"}>
-              <ShoppingCart className="h-5 w-5" />
-              <div className="absolute z-10 top-0 text-center bg-red-500 text-xs text-white rounded-full h-4 w-4 left-6">
-              {cartItemCount}
-              </div>
-            </Link>
+            <CartButton></CartButton>
           </div>
+          <SignInOrOutButton />
         </div>
         <div className="lg:hidden flex flex-auto justify-between">
           <Image className="items-center h-6 w-[140px]" src={logo} alt="logo" />
@@ -68,14 +61,7 @@ const Header = () => {
                 alt="logo"
               />
               <div className="flex flex-col items-center mt-20">
-              <Link href="/cart/page">
-                <button className="h-10 w-10 rounded-full bg-gray-200 flex justify-center items-center relative">
-                  <ShoppingCart className="h-5 w-5" />
-                  <div className="absolute z-10 top-0 text-center bg-red-500 text-xs text-white rounded-full h-4 w-4 left-6">
-                  {cartItemCount}
-                  </div>
-                </button>
-                </Link>
+                <CartButton></CartButton>
                 <ul className="flex text-center bg-white gap-y-3 mt-5 gap-x-8 flex-col items-center">
                   <li className="text-lg">
                     <Link href={"/category/Female"}>Female</Link>
@@ -88,6 +74,9 @@ const Header = () => {
                   </li>
                   <li className="text-lg">
                     <Link href={"/AllProducts"}>All Products</Link>
+                  </li>
+                  <li className="text-lg">
+                    <SignInOrOutButton />
                   </li>
                 </ul>
               </div>

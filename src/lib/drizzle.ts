@@ -7,9 +7,10 @@ export const cartColumns = pgTable("cartdata", {
   user_id: varchar("user_id").notNull(),
   product_id: varchar("product_id").notNull(),
   product_title: varchar("product_title").notNull(),
-  image_url: varchar("image_url").notNull(),
   product_price: varchar("product_price").notNull(),
   product_quantity: varchar("product_quantity").notNull(),
+  product_category: varchar("product_category").notNull(),
+  image_url: varchar("image_url").notNull(),
 });
 
 export const db = drizzle(sql);

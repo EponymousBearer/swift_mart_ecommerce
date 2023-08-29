@@ -9,6 +9,7 @@ import bazaar from "../../public/bazaar.png";
 import bustle from "../../public/bustle.png";
 import instyle from "../../public/instyle.webp";
 import versace from "../../public/versace.png";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -33,9 +34,9 @@ const Hero = () => {
               </p>
             </div>
             <div>
+              <Link href={"/AllProducts"}>
               <Button className=" mt-9 bg-[#212121] 2xl:text-lg text-white font-bold py-7 px-20 md:py-9 md:px-[89px] 2xl:py-7 2xl:px-[100px] md:gap-x-6 gap-x-3 shadow-md lg:max-w-[160px] 2xl:max-w-[700px]">
                 <div>
-                  {" "}
                   <ShoppingCart
                     className="2xl:h-7 2xl:w-7 h-6 w-6"
                     color="#ffffff"
@@ -43,6 +44,7 @@ const Hero = () => {
                 </div>
                 <div>Start Shopping</div>
               </Button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 grid-rows-2 mt-10 2xl:mt-56">
               <div className="lg:flex lg:gap-x-5 2xl:gap-x-36">

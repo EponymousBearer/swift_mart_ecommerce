@@ -35,7 +35,7 @@ export default async function CategoryPage({ params }: { params: any }) {
   const filteredData = data.filter((item: IProduct) => item.gender === params.gender);
 
   if (filteredData.length === 0) {
-    return <div>No Products found</div>;
+    return <div className="text-center mt-20 font-bold">No Products found</div>;
   }
 
   return (

@@ -3,7 +3,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Quantity = () => {
+const Quantity = (item:any) => {
   const [num, setNum] = useState(1);
 
   return (

@@ -15,43 +15,49 @@ const Footer = () => {
             of high quality everyday essentials made.
           </p>
           <div className="flex space-x-9">
-            <Link href={"/"}>
-              <Twitter />
-            </Link>
-            <Link href={"/"}>
-              <Facebook />
-            </Link>
-            <Link href={"/"}>
-              <Linkedin />
-            </Link>
+            <Twitter />
+            <Facebook />
+            <Linkedin />
           </div>
         </div>
         {/* Right Div */}
         <div className="basis-2/3 grid grid-cols-1 lg:grid-cols-3 gap-y-10 text-grey">
           <div>
-            <h3 className="font-bold text-xl lg:text-2xl tracking-wide">Company</h3>
-            <ul className="space-y-2 mt-4 lg:text-xl">
-              <li>About</li>
-              <li>Terms of Use</li>
-              <li>Privacy Policy</li>
-              <li>How it Works</li>
-              <li>Contact Us</li>
-            </ul>
+            <h3 className="font-bold text-xl lg:text-2xl tracking-wide">
+              Company
+            </h3>
+            <button>
+              <ul className="space-y-2 mt-4 lg:text-xl text-start">
+                <li>About</li>
+                <li>Terms of Use</li>
+                <li>Privacy Policy</li>
+                <li>How it Works</li>
+                <li>Contact Us</li>
+              </ul>
+            </button>
           </div>
           <div>
-            <h3 className="font-bold text-xl lg:text-2xl tracking-wide">Support</h3>
-            <ul className="space-y-2 mt-4 lg:text-xl">
-              <li>Support Carrer</li>
-              <li>24h Service</li>
-              <li>Quick Chat</li>
-            </ul>
+            <h3 className="font-bold text-xl lg:text-2xl tracking-wide">
+              Support
+            </h3>
+            <button>
+              <ul className="space-y-2 mt-4 lg:text-xl text-start">
+                <li>Support Carrer</li>
+                <li>24h Service</li>
+                <li>Quick Chat</li>
+              </ul>
+            </button>
           </div>
           <div>
-            <h3 className="font-bold text-xl lg:text-2xl tracking-wide">Contact</h3>
-            <ul className="space-y-2 mt-4 lg:text-xl">
-              <li>Whatsapp</li>
-              <li>Support 24h</li>
-            </ul>
+            <h3 className="font-bold text-xl lg:text-2xl tracking-wide">
+              Contact
+            </h3>
+            <button>
+              <ul className="space-y-2 mt-4 lg:text-xl text-start">
+                <li>Whatsapp</li>
+                <li>Support 24h</li>
+              </ul>
+            </button>
           </div>
         </div>
       </div>
@@ -60,7 +66,9 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="flex lg:flex-row flex-col gap-y-6 gap-x-72 2xl:gap-x-[600px] text-[#666] my-4 lg:my-6 mx-4 px-4 md:mx-16 md:px-16 xl:mx-16 xl:px-16">
-        <div className="text-base lg:text-2xl xl:text-base">Copyright © 2022 Dine Market</div>
+        <div className="text-base lg:text-2xl xl:text-base">
+          Copyright © 2022 Dine Market
+        </div>
         <div className="lg:text-2xl xl:text-base">
           Design by. <b className="text-black">Weird Design Studio</b>
         </div>
