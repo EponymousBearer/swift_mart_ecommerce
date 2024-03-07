@@ -10,7 +10,7 @@ const SignInOrOutButton = () => {
     <div className="">
       {!isSignedIn && (
         <SignInButton mode="modal">
-          <button className="bg-black text-white">Sign in</button>
+          <button className="bg-blue-400 rounded-full text-white p-2">Sign in</button>
         </SignInButton>
       )}
       <UserButton afterSignOutUrl="/" />
