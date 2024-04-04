@@ -26,14 +26,14 @@ const SuccessPage = () => {
         <h1 className="text-5xl font-bold">Thank you for your order!</h1>
         <p className="font-medium">Check your email inbox for the receipt</p>
         <p className="font-medium mt-2 ">
-          If you have any questions, please email 
+          If you have any questions, please email
           <button className="text-red-600 ml-1">
-            <a href="mailto:ecommercewebsite@example.com">
-              ecommercewebsite@example.com
+            <a href="mailto:swiftmart@gmail.com">
+              swiftmart@gmail.com
             </a>
           </button>
         </p>
-      <ContinueShoppingButton/>
+        <ContinueShoppingButton />
       </div>
     </Wrapper>
   );
