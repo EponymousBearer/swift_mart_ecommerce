@@ -88,18 +88,26 @@ export default function CartItems() {
 
   return (
     <Wrapper>
-      <section className="px-2 my-16">
-        <h1 className="font-bold text-3xl">Shopping Cart</h1>
+      <section className="px-2 my-16 flex flex-col h-full ">
+        <h1 className="font-bold text-3xl text-center w-full">My Shopping Cart</h1>
         {totalQuantity != 0 ? (
-          <div className=" flex mt-6 gap-x-10">
+          <div className="flex mt-12 px-16 py-4 border border-slate-300">
             {/* Cart Items */}
 
-            <div className="basis-[70%]">
+            <div className="flex-1 ">
               {isSignedIn ? (
                 <div>
+                  <div className="mt-6 capitalize flex w-full px-6 py-4 border-b-2 justify-end gap-x-16">
+                    <div className="justify-center flex w-full">
+                      <p>description</p>
+                    </div>
+                    <p>price</p>
+                    <p>quantity</p>
+                    <p>remove</p>
+                  </div>
                   {products?.map((item: any) => (
-                    <div className=" flex p-7 gap-x-8">
-                      <div className=" h-48 w-44 ">
+                    <div className="flex p-6 gap-x-8 border-b-2">
+                      <div className="h-44 w-44">
                         <Image
                           src={item.image_url} // Use the image URL here
                           height={500}
@@ -108,61 +116,57 @@ export default function CartItems() {
                           alt={item.product_title}
                         />
                       </div>
-                      <div className="font-bold w-full ">
-                        <div className="text-xl font-light flex items-center justify-between">
-                          <span>{item.product_title}</span>
-                          <button
-                            onClick={() => deleteProduct(item.product_title)}
+                      <div className="text-lg flex items-center justify-between px-4 w-full">
+                        {/* TITLE CATEGORY */}
+                        <div className="flex flex-col">
+                          <span className="text-xl font-light flex max-w-sm">{item.product_title}</span>
+                          <h2 className=" capitalize font-PT_Serif text-lg text-gray-500">
+                            {item.product_category}
+                          </h2>
+                        </div>
+                        {/* Price */}
+                        <span className="italic text-xl">
+                          $
+                          {(item.product_price / item.product_quantity) *
+                            (quantities[item.product_id] || 1)}
+                        </span>
+                        {/* Quantity */}
+                        <div className="flex items-center gap-x-2">
+                          <div
+                            className="border rounded-full h-8 w-8 text-center bg-slate-200 text-2xl cursor-pointer"
+                            onClick={() => {
+                              const newQuantity =
+                                (quantities[item.product_id] || 1) - 1;
+                              setQuantities((prevQuantities) => ({
+                                ...prevQuantities,
+                                [item.product_id]:
+                                  newQuantity >= 1 ? newQuantity : 1,
+                              }));
+                            }}
                           >
-                            <Trash2 />
-                          </button>
-                        </div>
-                        <h2 className="mt-5 text-gray-500">
-                          {item.product_category}
-                        </h2>
-                        <div className="mt-4">Delivery Estimation</div>
-                        <div className="mt-4 text-yellow-400">
-                          5 Working Days
-                        </div>
-                        <div className="mt-4 text-lg flex items-center justify-between">
-                          <span>
-                            $
-                            {(item.product_price / item.product_quantity) *
-                              (quantities[item.product_id] || 1)}
-                          </span>
-                          <div className="font-light">
-                            <section className="flex items-center gap-x-2">
-                              <div
-                                className="border rounded-full h-8 w-8 text-center bg-slate-200 text-2xl cursor-pointer"
-                                onClick={() => {
-                                  const newQuantity =
-                                    (quantities[item.product_id] || 1) - 1;
-                                  setQuantities((prevQuantities) => ({
-                                    ...prevQuantities,
-                                    [item.product_id]:
-                                      newQuantity >= 1 ? newQuantity : 1,
-                                  }));
-                                }}
-                              >
-                                -
-                              </div>
-                              <span>{quantities[item.product_id] || 1}</span>
-                              <div
-                                className="border rounded-full h-8 w-8 text-center bg-slate-200 text-xl cursor-pointer"
-                                onClick={() => {
-                                  const newQuantity =
-                                    (quantities[item.product_id] || 1) + 1;
-                                  setQuantities((prevQuantities) => ({
-                                    ...prevQuantities,
-                                    [item.product_id]: newQuantity,
-                                  }));
-                                }}
-                              >
-                                +
-                              </div>
-                            </section>
+                            -
+                          </div>
+                          <span>{quantities[item.product_id] || 1}</span>
+                          <div
+                            className="border rounded-full h-8 w-8 text-center bg-slate-200 text-xl cursor-pointer"
+                            onClick={() => {
+                              const newQuantity =
+                                (quantities[item.product_id] || 1) + 1;
+                              setQuantities((prevQuantities) => ({
+                                ...prevQuantities,
+                                [item.product_id]: newQuantity,
+                              }));
+                            }}
+                          >
+                            +
                           </div>
                         </div>
+                        {/* DELETE */}
+                        <button
+                          onClick={() => deleteProduct(item.product_title)}
+                        >
+                          <Trash2 />
+                        </button>
                       </div>
                     </div>
                   ))}
@@ -174,26 +178,23 @@ export default function CartItems() {
 
             {/* Order Summary */}
 
-            <div className="bg-stone-100 basis-[30%] p-9 space-y-7">
-              <>
-                <h2 className="text-xl font-bold">Order Summary</h2>
-                <div className="text-lg flex">
-                  Quantity: {totalQuantity} Products
-                </div>
-                <div className="text-lg">Sub Total: ${totalSubtotal}</div>
+            <div className="fixed left-0 right-0 bottom-0 bg-stone-100 w-full px-32 py-4 space-y-7">
+              <div className="flex text-lg items-center justify-between">
+                <div>Quantity: {totalQuantity} Products</div>
+                <div>Sub Total: ${totalSubtotal}</div>
                 <Button
                   onClick={handleCheckout}
-                  className="text-white w-full py-3"
+                  className="text-white px-3 py-3"
                 >
                   Proceed To Checkout
                 </Button>
-              </>
+              </div>
             </div>
           </div>
         ) : (
-          <div className="flex-col items-center flex mt-12">
+          <div className="flex-col items-center flex mt-20">
             <ShoppingBag height={120} width={120} />
-            <p className="font-bold text-3xl mt-4 mb-9">
+            <p className="font-bold text-3xl mt-6 mb-10">
               Your shopping bag is empty
             </p>
           </div>

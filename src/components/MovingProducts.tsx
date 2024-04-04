@@ -32,7 +32,7 @@ export default function MovingProducts() {
 
   return (
     <section className="">
-      <div className="flex justify-center flex-col gap-y-6 lg:grid lg:grid-cols-[repeat(4,auto)] lg:gap-x-10 2xl:gap-x-96 ">
+      <div className="text-white flex justify-center flex-col gap-y-6 lg:grid lg:grid-cols-[repeat(4,auto)] lg:gap-x-10 2xl:gap-x-96 ">
         {displayedItems.map((item: any, index) => (
           <Link href={`/product/${item.slug.current}`} key={index}>
             <ProductCart item={item} key={index} />

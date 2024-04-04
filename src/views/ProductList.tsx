@@ -8,8 +8,7 @@ export default function ProductList() {
       <section className="pt-20">
         <h2 className="text-white font-bold text-3xl mb-8">
           Featured Products
-        </h2>
-  
+        </h2>  
         {/* <FeaturedList /> */}
         <MovingProducts />
       </section>
