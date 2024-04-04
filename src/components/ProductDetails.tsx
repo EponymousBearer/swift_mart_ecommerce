@@ -81,122 +81,117 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
           {/* First Row */}
           <div className="flex">
             {/* 1st Div */}
-            <div className="grid grid-cols-1 mr-8">
-              {foundData.images.map((_imageObj: any) => {
-                return (
-                  <Image
-                    key={_imageObj.asset.id}
-                    src={urlForImage(_imageObj.asset).url()}
-                    alt={_imageObj.alt}
-                    width={100}
-                    height={100}
-                  />
-                );
-              })}
-            </div>
-
-            {/* 2nd Div */}
-
-            <div className="w-[600px]">
-              <Image
-                src={urlForImage(foundData.images[0].asset).url()}
-                height={500}
-                width={400}
-                className="h-full w-full object-cover"
-                alt={foundData.title}
-              />
-            </div>
-
-            {/* 3rd Div */}
-
-            <div className="mt-16 ml-5">
-              <h1 className="text-2xl leading-8 -tracking-tighter">
+            <div className="mt-16 ml-2 flex-1">
+              <h1 className="text-2xl font-bold tracking-wider mb-4">
                 {foundData.title}
               </h1>
-              <h2 className="text-lg text-gray-500 font-semibold opacity-50">
-                {foundData.category}
-              </h2>
-              <h3 className="font-bold mt-6">SELECT SIZE</h3>
-              <span className="flex font-bold justify-between ml-4 mt-5 text-gray-800 opacity-80">
-                {sizes.map((size) => (
-                  <button key={size}>{size}</button>
-                ))}
-              </span>
-              <div className="flex align-middle mt-10">
-                <h3 className="font-bold mr-6">Quantity: </h3>
-                <section className="flex items-center gap-x-2">
-                  <div
-                    className="border rounded-full h-8 w-8 text-center bg-slate-200 text-2xl"
-                    onClick={() => {
-                      setNum(num <= 1 ? 1 : num - 1);
-                    }}
-                  >
-                    -
-                  </div>
-                  <span>{num}</span>
-                  <div
-                    className="border rounded-full h-8 w-8 text-center bg-slate-200 text-xl"
-                    onClick={() => {
-                      setNum(num + 1);
-                    }}
-                  >
-                    +
-                  </div>
-                </section>
-              </div>
-              <div className="flex mt-8 gap-x-5 items-center">
-                <Button
-                  onClick={handleAddToCart}
-                  className=" bg-[#212121] text-white font-bold py-6 px-30 gap-x-3 text-sm w-[45%] border-2  border-solid shadow-md lg:max-w-[250px]"
-                >
-                  <ShoppingCart className="h-6 w-6" color="#ffffff" />
-                  <div>Add to Cart</div>
-                </Button>
-                <ToastContainer />
-                {/* {showNotification && (
-                  <div className="notification absolute top-0 left-0 bg-green-500 text-white p-2 rounded-md shadow-md">
-                    Product added to cart!
-                  </div>
-                )} */}
-                <div className="font-bold text-2xl">
+              <div className="flex w-full items-center justify-between max-w-lg">
+                <h2 className="text-lg capitalize text-gray-500 font-semibold opacity-50">
+                  {foundData.category}
+                </h2>
+                <div className="font-PT_Serif text-3xl font-light">
                   ${foundData.price.toFixed(2)}
                 </div>
               </div>
+              <p className="text-slate-800 py-6 max-w-lg text-justify">{foundData.description}</p>
+              <h3 className="font-bold mt-6">SELECT SIZE</h3>
+              <span className="flex justify-between w-2/3 rounded-sm mt-4 text-gray-800 opacity-80">
+                {sizes.map((size) => (
+                  <button className="border border-black text-black hover:text-white hover:bg-black text-sm h-10 w-10 rounded-full" key={size}>{size}</button>
+                ))}
+              </span>
+              <div className="flex mt-12 gap-x-5 items-center">
+                <div className="flex align-middle">
+                  <section className="flex justify-center items-center gap-x-4 rounded-full border border-black">
+                    <div
+                      className=" h-9 w-9 text-center  text-2xl"
+                      onClick={() => {
+                        setNum(num <= 1 ? 1 : num - 1);
+                      }}
+                    >
+                      -
+                    </div>
+                    <span className="text-lg">{num}</span>
+                    <div
+                      className=" h-9 w-9 text-center text-xl mt-1"
+                      onClick={() => {
+                        setNum(num + 1);
+                      }}
+                    >
+                      +
+                    </div>
+                  </section>
+                </div>
+                <Button
+                  onClick={handleAddToCart}
+                  className=" bg-stone-800 animate-bounce text-white font-bold py-2 rounded-full gap-x-3 text-sm px-8 lg:max-w-[250px]"
+                >
+                  <div>ADD TO CART</div>
+                </Button>
+                <ToastContainer />
+
+              </div>
             </div>
+
+            {/* 3rd Div */}
+            <div className="flex flex-col flex-1">
+              <div className="w-full">
+                <Image
+                  src={urlForImage(foundData.images[0].asset).url()}
+                  height={500}
+                  width={400}
+                  className="h-full w-full object-cover shadow-md shadow-stone-800"
+                  alt={foundData.title}
+                />
+              </div>
+
+
+              {/* 2nd Div */}
+              <div className="grid grid-cols-1 mt-4">
+                {foundData.images.map((_imageObj: any) => {
+                  return (
+                    <Image
+                      key={_imageObj.asset.id}
+                      src={urlForImage(_imageObj.asset).url()}
+                      alt={_imageObj.alt}
+                      width={100}
+                      height={100}
+                      className="shadow-md shadow-stone-800"
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
 
           {/* Second Row */}
 
-          <div className="my-20 space-y-10 relative">
-            <div className="border-b-4 h-24">
-              <h3
-                className="font-extrabold text-[7.5rem] leading-[151px] text-paragraph opacity-[0.06] w-1/4
-           -z-10 absolute top-0"
-              >
-                Overview
-              </h3>
+          <div className="my-20 space-y-10">
+            <div className="border-b-2 h-12">
               <h2 className="tracking-wider font-extrabold text-xl mt-1">
                 Product Information
               </h2>
             </div>
+            <div className="flex gap-x-6">
+              <div className="flex-1">
+                <div className="mb-3 basis-1/3 tracking-wider font-bold text-grey">
+                  PRODUCT DETAILS
+                </div>
+                <div className="basis-2/3 text-justify tracking-wider text-lg font-light">
+                  {foundData.description}
+                </div>
+              </div>
 
-            <div className="flex">
-              <div className="basis-1/3 tracking-wider font-bold text-grey">
-                PRODUCT DETAILS
+              <div className="flex-1">
+                <div className=" mb-3 basis-1/3 tracking-wider font-bold text-grey">
+                  PRODUCT CARE
+                </div>
+                <ul className="basis-2/3 list-disc ml-7 font-bold text-justify tracking-wider text-lg">
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>consectetur adipiscing elit</li>
+                </ul>
               </div>
-              <div className="basis-2/3 text-justify tracking-wider text-lg font-light">
-                {foundData.description}
-              </div>
-            </div>
-
-            <div className="flex">
-              <div className="basis-1/3 tracking-wider font-bold text-grey">
-                PRODUCT CARE
-              </div>
-              <ul className="basis-2/3 list-disc ml-7 font-bold text-justify tracking-wider text-lg">
-                <li>Lorem ipsum dolor sit amet</li>
-                <li>consectetur adipiscing elit</li>
-              </ul>
             </div>
           </div>
         </div>

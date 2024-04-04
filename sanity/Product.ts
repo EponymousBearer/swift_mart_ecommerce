@@ -41,23 +41,9 @@ export const Product = defineType({
       type: "string",
       options: {
         list: [
-          {title: "Dress", value: "dress"},
-          {title: "Sweater", value: "sweater"},
-          {title: "Pants", value: "pants"},
-          {title: "Jackets", value: "jackets"},
-          {title: "T Shirt", value: "t_shirt"},
-        ]
-      }
-    }),
-    defineField({
-      name: "gender",
-      title: "Gender",
-      type: "string",
-      options: {
-        list: [
-          {title: "Male", value: "male"},
-          {title: "Female", value: "female"},
-          {title: "Kids", value: "kids"},
+          {title: "Headphone", value: "headphone"},
+          {title: "Accessories", value: "accessories"},
+          {title: "Monitor", value: "monitor"},
         ]
       }
     }),

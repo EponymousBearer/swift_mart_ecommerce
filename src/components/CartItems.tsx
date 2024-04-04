@@ -88,10 +88,10 @@ export default function CartItems() {
 
   return (
     <Wrapper>
-      <section className="px-12 my-16">
-        <h1 className="font-bold text-2xl">Shopping Cart</h1>
+      <section className="px-2 my-16">
+        <h1 className="font-bold text-3xl">Shopping Cart</h1>
         {totalQuantity != 0 ? (
-          <div className=" flex mt-2 gap-x-10">
+          <div className=" flex mt-6 gap-x-10">
             {/* Cart Items */}
 
             <div className="basis-[70%]">
@@ -174,7 +174,7 @@ export default function CartItems() {
 
             {/* Order Summary */}
 
-            <div className="bg-blue-50 basis-[30%] p-9 space-y-7">
+            <div className="bg-stone-100 basis-[30%] p-9 space-y-7">
               <>
                 <h2 className="text-xl font-bold">Order Summary</h2>
                 <div className="text-lg flex">

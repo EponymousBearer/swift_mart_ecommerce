@@ -1,75 +1,121 @@
 import React from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import HeroImage from "../../public/HeroImage.webp";
-import { ShoppingCart } from "lucide-react";
-import Wrapper from "@/components/shared/Wrapper";
-import bazaar from "../../public/bazaar.png";
-import bustle from "../../public/bustle.png";
-import instyle from "../../public/instyle.webp";
-import versace from "../../public/versace.png";
+import HeroImage2 from "../../public/HeroImage2.webp";
+import HeroImage3 from "../../public/HeroImage3.webp";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Hero = () => {
   return (
-    <Wrapper>
-        <div className="flex space-y-10 mb-12 flex-col lg:flex-row relative">
-          {/* Left Div */}
-          <div className="flex-1">
-            <div>
-              <Badge className="mt-10 lg:mt-24 py-1 px-5 rounded bg-blue-100 text-blue-700 font-semibold text-lg line">
-                Sale 70%
-              </Badge>
-            </div>
-            <div>
-              <h1 className="scroll-m-20 text-[52px] leading-none font-bold lg:text-6xl max-w-md 2xl:max-w-7xl opacity-90 mt-9">
-                An Industrial Take on Streetwear
-              </h1>
-            </div>
-            <div>
-              <p className="text-[17px] max-w-sm 2xl:max-w-4xl text-gray-500 mt-9">
-                Anyone can beat you but no one can beat your outfit as long as
-                you wear Dine outfits.
-              </p>
-            </div>
-            <div>
-              <Link href={"/AllProducts"}>
-              <Button className=" mt-9 bg-[#212121] 2xl:text-lg text-white font-bold py-7 px-20 md:py-9 md:px-[89px] 2xl:py-7 2xl:px-[100px] md:gap-x-6 gap-x-3 shadow-md lg:max-w-[160px] 2xl:max-w-[700px]">
-                <div>
-                  <ShoppingCart
-                    className="2xl:h-7 2xl:w-7 h-6 w-6"
-                    color="#ffffff"
-                  />
-                </div>
-                <div>Start Shopping</div>
-              </Button>
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 grid-rows-2 mt-10 2xl:mt-56">
-              <div className="lg:flex lg:gap-x-5 2xl:gap-x-36">
-                <Image src={bazaar} alt="bazaar" className="mr-5 mb-5" />
-                <Image src={versace} alt="versace" className="mr-5 mb-5" />
+    <Carousel>
+      <CarouselContent>
+        <CarouselItem>
+          <div className="flex flex-col relative h-screen">
+            <div className="flex items-center justify-center">
+              {/* Background Image */}
+              <div className="absolute top-0 left-0 right-0 bottom-0 z-0">
+                <Image
+                  src={HeroImage}
+                  alt="Main Image"
+                  className="h-full w-full object-left-top md:object-center"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
-              <div className="lg:flex lg:gap-x-5 2xl:gap-x-36">
-                <Image src={bustle} alt="bustle" className="mb-5 mr-5" />
-                <Image src={instyle} alt="instyle" className="mb-5" />
+
+              {/* Overlay Content */}
+              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-96">
+                <h1 className="text-2xl max-w-sm lg:text-4xl lg:max-w-lg xl:max-w-xl font-bold text-stone-900">
+                  Experience Pure Sound: Elevate Your Audio Game
+                </h1>
+                <p className="mt-4 text-base max-w-sm lg:text-xl lg:max-w-lg xl:max-w-xl text-gray-600">
+                  Discover crystal-clear sound and unmatched comfort with our
+                  premium headphones. Elevate your listening experience today.
+                </p>
+                <Link href="/AllProducts">
+                  <div className="inline-block mt-4 md:mt-8 bg-[#212121] md:text-lg text-white md:font-bold py-3 px-6 md:px-10 rounded shadow-md">
+                    Discover More
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
-          {/* Right Div */}
-          <div className="flex-1 align-middle justify-center relative hidden lg:block">
-            <div className="lg:h-[600px] lg:w-[600px] rounded-full absolute bg-pink z-[-1]"></div>
-            <div className="flex items-center justify-center h-[600px] w-[600px] absolute z-10">
-              <Image
-                alt="Main Image"
-                src={HeroImage}
-                className="scale-110"
-              ></Image>
+        </CarouselItem>
+        <CarouselItem>
+          <div className="flex flex-col lg:flex-row relative h-screen">
+            <div className="flex items-center justify-center">
+              {/* Background Image */}
+              <div className="absolute top-0 left-0 right-0 bottom-0 z-0">
+                <Image
+                  src={HeroImage2}
+                  alt="Main Image"
+                  layout="fill"
+                  objectFit="cover"
+                  className="h-full w-full object-cover object-left-top md:object-center"
+                />
+              </div>
+
+              {/* Overlay Content */}
+              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-96">
+                <h1 className="text-2xl lg:text-4xl max-w-sm lg:max-w-lg xl:max-w-xl font-bold text-stone-900">
+                  Time Reimagined: Smart Connectivity on Your Wrist
+                </h1>
+                <p className="mt-4 text-base max-w-xs lg:text-xl lg:max-w-lg xl:max-w-xl text-gray-600">
+                  Embrace seamless connectivity and style with our smartwatch.
+                  Stay ahead, stay connected.
+                </p>
+                <Link href="/AllProducts">
+                  <div className="inline-block mt-8 bg-[#212121] text-lg text-white font-bold py-3 px-10 rounded shadow-md">
+                    Discover More
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-    </Wrapper>
+        </CarouselItem>
+        <CarouselItem>
+          <div className="flex flex-col lg:flex-row relative h-screen">
+            <div className="flex items-center justify-center">
+              {/* Background Image */}
+              <div className="absolute top-0 left-0 right-0 bottom-0 z-0">
+                <Image
+                  src={HeroImage3}
+                  alt="Main Image"
+                  layout="fill"
+                  objectFit="cover"
+                  className="h-full w-full object-cover object-left-top md:object-center"
+                />
+              </div>
+
+              {/* Overlay Content */}
+              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-96">
+                <h1 className="text-2xl lg:text-4xl max-w-xs lg:max-w-lg xl:max-w-xl font-bold text-stone-900">
+                  Power Up, WireFree, Charging Redefined
+                </h1>
+                <p className="mt-4 text-base lg:text-xl max-w-[250px] lg:max-w-sm xl:max-w-xl text-gray-600">
+                  Experience the convenience of wire-free charging. Effortless
+                  power, anytime, anywhere.
+                </p>
+                <Link href="/AllProducts">
+                  <div className="inline-block mt-8 bg-[#212121] text-lg text-white font-bold py-3 px-10 rounded shadow-md">
+                    Discover More
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   );
 };
 

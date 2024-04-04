@@ -1,17 +1,18 @@
 import Hero from "@/views/Hero";
-import Promotions from "@/views/Promotions";
 import ProductList from "@/views/ProductList";
-import DifferentFromOthers from "@/views/DifferentFromOthers";
+import PromoSection from "@/views/PromoSection";
 import Newsletter from "@/views/Newsletter";
+import Ps from "@/views/PsSection";
+import PreviewCollections from "@/views/PreviewCollecitons";
 
 export default async function Home() {
   return (
-    <section className="">
-        <Hero></Hero>
-        <Promotions></Promotions>
-        <ProductList></ProductList>
-        <DifferentFromOthers></DifferentFromOthers>
-        <Newsletter></Newsletter>
+    <section className="bg-stone-900">
+      <Hero></Hero>
+      <ProductList></ProductList>
+      <PreviewCollections />
+      <Ps></Ps>
+      <PromoSection />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import logo from "/public/DineMarketLogo.webp";
+import logo from "/public/main-logo-2.png";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,40 +13,42 @@ import SignInOrOutButton from "../SignInOrOutButton";
 const Header = () => {
   return (
     <Wrapper>
-      <div className="flex items-center justify-between py-8 lg:py-8">
+      <div className="flex items-center justify-between py-4">
         <div className="hidden lg:flex items-center justify-between flex-auto">
-          <Link href={"../"}>
+          <Link href={"../../"}>
             <Image
-              className="items-center h-6 w-[140px]"
+              className="items-center h-10 w-44"
               src={logo}
               alt="logo"
             />
           </Link>
           <ul className="flex text-center gap-x-10">
-            <li className="text-lg">
-              <Link href={"/category/female"}>Female</Link>
+            <li>
+              <Link href={"/category/headphone"}>Headphone</Link>
             </li>
-            <li className="text-lg">
-              <Link href={"/category/male"}>Male</Link>
+            <li>
+              <Link href={"/category/monitor"}>Monitor</Link>
             </li>
-            <li className="text-lg">
-              <Link href={"/category/kids"}>Kids</Link>
+            <li>
+              <Link href={"/category/accessories"}>Accessories</Link>
             </li>
-            <li className="text-lg">
+            <li>
               <Link href={"/AllProducts"}>All Products</Link>
             </li>
           </ul>
-          <div className="flex items-center border rounded border-opacity-50">
+          {/* <div className="flex items-center border rounded border-opacity-50">
             <Search className="lg:h-3 lg:w-3 h-4 w-4 ml-2" />
             <Input
               placeholder="What you're looking for"
               className="border-gray-600 opacity-70 tracking-tighter text-sm align-middle"
             />
+          </div> */}
+          <div className="flex gap-x-8">
+            <SignInOrOutButton />
+            <div className="relative h-10 w-10 rounded-full flex justify-center items-center bg-gray-200 hover:scale-125 transition">
+              <CartButton></CartButton>
+            </div>
           </div>
-          <div className="relative h-11 w-11 rounded-full flex justify-center items-center bg-gray-200 hover:scale-125 transition">
-            <CartButton></CartButton>
-          </div>
-          <SignInOrOutButton />
         </div>
         <div className="lg:hidden flex flex-auto justify-between">
           <Image className="items-center h-6 w-[140px]" src={logo} alt="logo" />
