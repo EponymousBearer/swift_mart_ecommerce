@@ -12,9 +12,8 @@ const Ps = () => {
                     <Image
                         src={PsSection}
                         alt="Main Image"
-                        className="h-full w-full object-left-top md:object-center"
+                        className="h-full w-full object-cover object-left-top md:object-center"
                         layout="fill"
-                        objectFit="cover"
                     />
                 </div>
 
