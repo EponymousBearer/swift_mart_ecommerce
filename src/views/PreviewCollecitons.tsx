@@ -19,14 +19,14 @@ const callouts = [
       description: 'Listen what you want',
       imageSrc: 'https://img.freepik.com/free-photo/still-life-wireless-cyberpunk-headphones_23-2151072227.jpg?w=360',
       imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
-      href: '/category/headphones',
+      href: '/category/headphone',
     },
     {
       name: 'Monitors',
       description: 'Watch Anything in UHDR',
       imageSrc: 'https://img.freepik.com/free-photo/gaming-room-no-people-equiped-with-rgb-powerful-personal-computer-online-videogames-tournament-gaming-chair-first-person-shooter-game-screen-cozy-room-with-neon-light_482257-12428.jpg?w=826',
       imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-      href: '/category/monitors',
+      href: '/category/monitor',
     },
     {
       name: 'Accessories',
