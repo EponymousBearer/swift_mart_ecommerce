@@ -40,7 +40,7 @@ export default async function CategoryPage({ params }: { params: any }) {
 
   return (
     <section>
-      <div className="my-28 grid grid-cols-[repeat(1,auto)] lg:grid-cols-[repeat(3,auto)] xl:grid-cols-[repeat(4,auto)] gap-14 justify-center">
+      <div className="my-28 grid grid-cols-[repeat(1,auto)] md:grid-cols-[repeat(2,auto)] lg:grid-cols-[repeat(3,auto)] xl:grid-cols-[repeat(4,auto)] gap-14 justify-center">
         {filteredData.map((product: IProduct, index: number) => (
           <Link href={`/product/${product.slug.current}`} key={index}>
             <ProductCart item={product} key={product._id} />

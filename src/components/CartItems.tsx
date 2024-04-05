@@ -88,16 +88,16 @@ export default function CartItems() {
 
   return (
     <Wrapper>
-      <section className="px-2 my-16 flex flex-col h-full ">
+      <section className="px-2 my-8 md:my-16 flex flex-col h-full 2xl:px-96 2xl:mx-36">
         <h1 className="font-bold text-3xl text-center w-full">My Shopping Cart</h1>
         {totalQuantity != 0 ? (
-          <div className="flex mt-12 px-16 py-4 border border-slate-300">
+          <div className="flex flex-col md:flex-row mt-12 lg:px-16 py-4 border border-slate-300">
             {/* Cart Items */}
 
             <div className="flex-1 ">
               {isSignedIn ? (
                 <div>
-                  <div className="mt-6 capitalize flex w-full px-6 py-4 border-b-2 justify-end gap-x-16">
+                  <div className="mt-6 hidden capitalize md:flex w-full px-6 py-4 border-b-2 justify-end gap-x-7 xl:gap-x-20">
                     <div className="justify-center flex w-full">
                       <p>description</p>
                     </div>
@@ -106,8 +106,8 @@ export default function CartItems() {
                     <p>remove</p>
                   </div>
                   {products?.map((item: any) => (
-                    <div className="flex p-6 gap-x-8 border-b-2">
-                      <div className="h-44 w-44">
+                    <div className="flex flex-col md:flex-row p-6 gap-x-8 border-b-2">
+                      <div className="h-44 w-48">
                         <Image
                           src={item.image_url} // Use the image URL here
                           height={500}
@@ -116,57 +116,59 @@ export default function CartItems() {
                           alt={item.product_title}
                         />
                       </div>
-                      <div className="text-lg flex items-center justify-between px-4 w-full">
+                      <div className="text-lg flex flex-col md:flex-row items-center justify-between md:px-4 w-full">
                         {/* TITLE CATEGORY */}
                         <div className="flex flex-col">
-                          <span className="text-xl font-light flex max-w-sm">{item.product_title}</span>
+                          <span className="text-lg md:text-xl mt-2 md:mt-0 font-light flex max-w-sm">{item.product_title}</span>
                           <h2 className=" capitalize font-PT_Serif text-lg text-gray-500">
                             {item.product_category}
                           </h2>
                         </div>
                         {/* Price */}
-                        <span className="italic text-xl">
-                          $
-                          {(item.product_price / item.product_quantity) *
-                            (quantities[item.product_id] || 1)}
-                        </span>
-                        {/* Quantity */}
-                        <div className="flex items-center gap-x-2">
-                          <div
-                            className="border rounded-full h-8 w-8 text-center bg-slate-200 text-2xl cursor-pointer"
-                            onClick={() => {
-                              const newQuantity =
-                                (quantities[item.product_id] || 1) - 1;
-                              setQuantities((prevQuantities) => ({
-                                ...prevQuantities,
-                                [item.product_id]:
-                                  newQuantity >= 1 ? newQuantity : 1,
-                              }));
-                            }}
-                          >
-                            -
+                        <div className="flex justify-between w-full mt-2 xl:max-w-xs">
+                          <span className="italic text-xl">
+                            $
+                            {(item.product_price / item.product_quantity) *
+                              (quantities[item.product_id] || 1)}
+                          </span>
+                          {/* Quantity */}
+                          <div className="flex items-center gap-x-2">
+                            <div
+                              className="border rounded-full h-8 w-8 text-center bg-slate-200 text-2xl cursor-pointer"
+                              onClick={() => {
+                                const newQuantity =
+                                  (quantities[item.product_id] || 1) - 1;
+                                setQuantities((prevQuantities) => ({
+                                  ...prevQuantities,
+                                  [item.product_id]:
+                                    newQuantity >= 1 ? newQuantity : 1,
+                                }));
+                              }}
+                            >
+                              -
+                            </div>
+                            <span>{quantities[item.product_id] || 1}</span>
+                            <div
+                              className="border rounded-full h-8 w-8 text-center bg-slate-200 text-xl cursor-pointer"
+                              onClick={() => {
+                                const newQuantity =
+                                  (quantities[item.product_id] || 1) + 1;
+                                setQuantities((prevQuantities) => ({
+                                  ...prevQuantities,
+                                  [item.product_id]: newQuantity,
+                                }));
+                              }}
+                            >
+                              +
+                            </div>
                           </div>
-                          <span>{quantities[item.product_id] || 1}</span>
-                          <div
-                            className="border rounded-full h-8 w-8 text-center bg-slate-200 text-xl cursor-pointer"
-                            onClick={() => {
-                              const newQuantity =
-                                (quantities[item.product_id] || 1) + 1;
-                              setQuantities((prevQuantities) => ({
-                                ...prevQuantities,
-                                [item.product_id]: newQuantity,
-                              }));
-                            }}
+                          {/* DELETE */}
+                          <button
+                            onClick={() => deleteProduct(item.product_title)}
                           >
-                            +
-                          </div>
+                            <Trash2 />
+                          </button>
                         </div>
-                        {/* DELETE */}
-                        <button
-                          onClick={() => deleteProduct(item.product_title)}
-                        >
-                          <Trash2 />
-                        </button>
                       </div>
                     </div>
                   ))}
@@ -178,23 +180,23 @@ export default function CartItems() {
 
             {/* Order Summary */}
 
-            <div className="fixed left-0 right-0 bottom-0 bg-stone-100 w-full px-32 py-4 space-y-7">
-              <div className="flex text-lg items-center justify-between">
+            <div className="fixed  flex flex-col md:flex-row justify-between items-center left-0 right-0 bottom-0 bg-stone-100 w-full px-6 md:px-16 xl:px-32 2xl:px-[520px] py-4 gap-y-4 md:space-y-7 gap-x-4">
+              <div className="flex md:w-3/5 text-sm gap-x-4 md:text-xl items-center md:justify-between justify-center">
                 <div>Quantity: {totalQuantity} Products</div>
                 <div>Sub Total: ${totalSubtotal}</div>
-                <Button
-                  onClick={handleCheckout}
-                  className="text-white px-3 py-3"
-                >
-                  Proceed To Checkout
-                </Button>
               </div>
+              <Button
+                onClick={handleCheckout}
+                className="text-white px-2 md:px-3 py-2 md:py-3"
+              >
+                Proceed To Checkout
+              </Button>
             </div>
           </div>
         ) : (
           <div className="flex-col items-center flex mt-20">
             <ShoppingBag height={120} width={120} />
-            <p className="font-bold text-3xl mt-6 mb-10">
+            <p className="font-bold text-3xl mt-6 mb-10 text-center">
               Your shopping bag is empty
             </p>
           </div>

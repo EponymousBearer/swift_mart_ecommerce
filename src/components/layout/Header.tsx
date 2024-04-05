@@ -13,7 +13,7 @@ import SignInOrOutButton from "../SignInOrOutButton";
 const Header = () => {
   return (
     <Wrapper>
-      <div className="flex items-center justify-between py-4">
+      <div className="flex items-center justify-between py-4 2xl:px-96 2xl:mx-48">
         <div className="hidden lg:flex items-center justify-between flex-auto">
           <Link href={"../../"}>
             <Image
@@ -51,34 +51,34 @@ const Header = () => {
           </div>
         </div>
         <div className="lg:hidden flex flex-auto justify-between">
-          <Image className="items-center h-6 w-[140px]" src={logo} alt="logo" />
+          <Image className="items-center h-10 w-32" src={logo} alt="logo" />
           <Sheet>
             <SheetTrigger>
               <Menu className="h-7 w-7" />
             </SheetTrigger>
             <SheetContent>
               <Image
-                className="items-center h-6 w-[140px] flex my-6 mx-5"
+                className="items-center h-10 w-32 flex my-6 mx-5"
                 src={logo}
                 alt="logo"
               />
-              <div className="flex flex-col items-center mt-20">
-                <CartButton></CartButton>
+              <div className="flex flex-col items-center mt-10">
+                <div className="flex gap-x-10">
+                  <div><CartButton /></div>
+                  <SignInOrOutButton />
+                </div>
                 <ul className="flex text-center bg-white gap-y-3 mt-5 gap-x-8 flex-col items-center">
-                  <li className="text-lg">
-                    <Link href={"/category/Female"}>Female</Link>
+                  <li>
+                    <Link href={"/category/headphone"}>Headphone</Link>
                   </li>
-                  <li className="text-lg">
-                    <Link href={"/category/Male"}>Male</Link>
+                  <li>
+                    <Link href={"/category/monitor"}>Monitor</Link>
                   </li>
-                  <li className="text-lg">
-                    <Link href={"/category/Kids"}>Kids</Link>
+                  <li>
+                    <Link href={"/category/accessories"}>Accessories</Link>
                   </li>
-                  <li className="text-lg">
+                  <li>
                     <Link href={"/AllProducts"}>All Products</Link>
-                  </li>
-                  <li className="text-lg">
-                    <SignInOrOutButton />
                   </li>
                 </ul>
               </div>

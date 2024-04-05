@@ -9,7 +9,7 @@ const ProductCart: FC<{ item: any }> = ({ item }) => {
   return (
     // <Link href={`/products/${item._id}`}>
     <div className="">
-      <div className="h-[290px] w-[270px] lg:h-[280px] lg:w-[260px] xl:h-[270px] xl:w-[250px]">
+      <div className="h-[290px] w-[250px] lg:h-[280px] lg:w-[260px] xl:h-[270px] xl:w-[250px]">
         <Image
           src={urlForImage(item.images[0]).url()}
           alt="Product"

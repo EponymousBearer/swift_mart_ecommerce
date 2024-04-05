@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const SuccessPage = () => {
   return (
     <Wrapper>
-      <div className="flex flex-col justify-center items-center w-full py-24 mt-20 gap-5 rounded-xl bg-[#f1f1f1]">
+      <div className="flex flex-col justify-center items-center w-full py-24 my-16 gap-5 rounded-xl bg-[#f1f1f1]">
         <p className="icon">
           <svg
             color="green"
