@@ -19,7 +19,7 @@ export default function MovingProducts() {
     }
 
     fetchData();
-  }, []);
+  }, [data]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

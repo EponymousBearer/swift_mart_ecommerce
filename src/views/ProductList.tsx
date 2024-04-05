@@ -1,6 +1,4 @@
-import Wrapper from "@/components/shared/Wrapper";
 import MovingProducts from "@/components/MovingProducts";
-import FeaturedList from "@/components/FeaturedList";
 
 export default function ProductList() {
   return (
@@ -8,7 +6,6 @@ export default function ProductList() {
         <h2 className="text-white font-bold text-2xl md::text-3xl mb-8">
           Featured Products
         </h2>  
-        {/* <FeaturedList /> */}
         <MovingProducts />
       </section>
   );
