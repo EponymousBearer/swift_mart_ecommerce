@@ -13,7 +13,7 @@ import SignInOrOutButton from "../SignInOrOutButton";
 const Header = () => {
   return (
     <Wrapper>
-      <div className="flex items-center justify-between py-4 2xl:px-96 2xl:mx-48">
+      <div className="flex items-center justify-between py-4">
         <div className="hidden lg:flex items-center justify-between flex-auto">
           <Link href={"../../"}>
             <Image

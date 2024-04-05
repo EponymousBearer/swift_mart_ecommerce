@@ -2,30 +2,7 @@ import React from "react";
 import FetchData from "../../../../sanity/FetchData";
 import ProductCart from "@/components/ProductCart";
 import Link from "next/link";
-
-interface IProductImage {
-  _type: string;
-  _key: string;
-  asset: {
-    _ref: string;
-    url: string;
-  };
-}
-
-interface IProduct {
-  _type: string;
-  _id: string;
-  slug: {
-    _type: string;
-    current: string;
-  };
-  title: string;
-  description: string;
-  price: number;
-  images: IProductImage[];
-  category: string;
-  gender: string;
-}
+import { IProduct } from "../../../../sanity/FetchData";
 
 export default async function CategoryPage({ params }: { params: any }) {
   const data = await FetchData();

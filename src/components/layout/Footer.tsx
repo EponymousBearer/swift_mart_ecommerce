@@ -8,7 +8,7 @@ import { Input } from "../ui/input";
 const Footer = () => {
   return (
     <section className=" bg-stone-900 text-white text-center md:text-start">
-      <div className="flex py-16 lg:py-28 gap-y-10 md:flex-row flex-col px-10 md:px-20 lg:px-28 2xl:px-96">
+      <div className="flex py-16 lg:py-28 gap-y-10 md:flex-row flex-col px-10 md:px-20 xl:px-36 mx-auto 2xl:max-w-6xl 2xl:px-0">
         {/* Left Div */}
         <div className="basis-1/4 md:basis-1/2">
           <Image
@@ -98,7 +98,7 @@ const Footer = () => {
       <div className="border-t-white border-t-[0.75px] w-full"></div>
 
       {/* Bottom */}
-      <div className="bg-stone-800 w-full 2xl:px-96 flex lg:flex-row flex-col gap-y-6 justify-between text-white py-4 lg:py-6 px-10 md:px-28">
+      <div className="bg-stone-800 w-full 2xl:px-[700px] flex lg:flex-row flex-col gap-y-6 justify-between text-white py-4 lg:py-6 px-10 md:px-20 xl:px-36">
         <div className="text-base lg:text-2xl xl:text-base">
           Copyright © 2022 Swift Mart
         </div>

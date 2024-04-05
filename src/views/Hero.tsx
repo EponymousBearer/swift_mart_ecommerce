@@ -30,7 +30,7 @@ const Hero = () => {
               </div>
 
               {/* Overlay Content */}
-              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-96">
+              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-0 max-w-7xl">
                 <h1 className="text-2xl max-w-sm lg:text-4xl lg:max-w-lg xl:max-w-xl font-bold text-stone-900">
                   Experience Pure Sound: Elevate Your Audio Game
                 </h1>
@@ -61,7 +61,7 @@ const Hero = () => {
               </div>
 
               {/* Overlay Content */}
-              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-96">
+              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-0 max-w-7xl">
                 <h1 className="text-2xl lg:text-4xl max-w-sm lg:max-w-lg xl:max-w-xl font-bold text-stone-900">
                   Time Reimagined: Smart Connectivity on Your Wrist
                 </h1>
@@ -92,7 +92,7 @@ const Hero = () => {
               </div>
 
               {/* Overlay Content */}
-              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-96">
+              <div className="flex flex-col h-screen justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-0 max-w-7xl">
                 <h1 className="text-2xl lg:text-4xl max-w-xs lg:max-w-lg xl:max-w-xl font-bold text-stone-900">
                   Power Up, WireFree, Charging Redefined
                 </h1>

@@ -75,13 +75,13 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
   };
 
   return (
-    <div className="flex mt-16">
+    <div className="flex mt-16 max-w-7xl mx-auto">
       {foundData && (
         <div key={foundData._id}>
           {/* First Row */}
-          <div className="flex">
+          <div className="flex flex-col-reverse max-w-[240px] md:max-w-none gap-x-8 md:flex-row">
             {/* 1st Div */}
-            <div className="mt-16 ml-2 flex-1">
+            <div className="mt-8  md:mt-16 ml-2 flex-1">
               <h1 className="text-2xl font-bold tracking-wider mb-4">
                 {foundData.title}
               </h1>
@@ -95,12 +95,12 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
               </div>
               <p className="text-slate-800 py-6 max-w-lg text-justify">{foundData.description}</p>
               <h3 className="font-bold mt-6">SELECT SIZE</h3>
-              <span className="flex justify-between w-2/3 rounded-sm mt-4 text-gray-800 opacity-80">
+              <span className="flex justify-between lg:w-2/3 rounded-sm mt-4 text-gray-800 opacity-80">
                 {sizes.map((size) => (
                   <button className="border border-black text-black hover:text-white hover:bg-black text-sm h-10 w-10 rounded-full" key={size}>{size}</button>
                 ))}
               </span>
-              <div className="flex mt-12 gap-x-5 items-center">
+              <div className="flex flex-col-reverse md:flex-row gap-y-5 mt-4 md:mt-12 gap-x-5 items-center">
                 <div className="flex align-middle">
                   <section className="flex justify-center items-center gap-x-4 rounded-full border border-black">
                     <div
@@ -124,7 +124,7 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
                 </div>
                 <Button
                   onClick={handleAddToCart}
-                  className=" bg-stone-800 animate-bounce text-white font-bold py-2 rounded-full gap-x-3 text-sm px-8 lg:max-w-[250px]"
+                  className=" bg-stone-800 animate-bounce text-white font-bold py-2 rounded-full gap-x-3 text-sm md:px-4 lg:px-8 lg:max-w-[250px]"
                 >
                   <div>ADD TO CART</div>
                 </Button>
@@ -135,7 +135,7 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
 
             {/* 3rd Div */}
             <div className="flex flex-col flex-1">
-              <div className="w-full">
+              <div className="w-64 md:w-full">
                 <Image
                   src={urlForImage(foundData.images[0].asset).url()}
                   height={500}
@@ -145,9 +145,8 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
                 />
               </div>
 
-
               {/* 2nd Div */}
-              <div className="grid grid-cols-1 mt-4">
+              <div className="hidden md:grid md:grid-cols-4 mt-4">
                 {foundData.images.map((_imageObj: any) => {
                   return (
                     <Image
@@ -156,7 +155,7 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
                       alt={_imageObj.alt}
                       width={100}
                       height={100}
-                      className="shadow-md shadow-stone-800"
+                      className="shadow-md h-96 md:h-full w-full shadow-stone-800"
                     />
                   );
                 })}
@@ -173,7 +172,7 @@ const ProductDetails = ({ foundData }: { foundData: any }) => {
                 Product Information
               </h2>
             </div>
-            <div className="flex gap-x-6">
+            <div className="flex flex-col mdLflex-row gap-y-6 gap-x-6">
               <div className="flex-1">
                 <div className="mb-3 basis-1/3 tracking-wider font-bold text-grey">
                   PRODUCT DETAILS

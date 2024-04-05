@@ -40,7 +40,7 @@ const callouts = [
   export default function PreviewCollections() {
     return (
       <div className="py-5">
-        <div className="mx-auto max-w-6xl px-8">
+        <div className="mx-auto max-w-6xl px-8 md:px-16 lg:px-0">
           <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
             <h2 className="text-2xl font-bold text-white">Collections</h2>
   

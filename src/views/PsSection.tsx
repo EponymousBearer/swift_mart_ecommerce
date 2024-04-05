@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Ps = () => {
     return (
-        <div className="flex flex-col relative">
+        <div className="flex flex-col relative  ">
             <div className="flex items-center justify-center">
                 {/* Background Image */}
                 <div className="absolute top-0 left-0 right-0 bottom-0 z-0 h-96">
@@ -18,7 +18,7 @@ const Ps = () => {
                 </div>
 
                 {/* Overlay Content */}
-                <div className="flex flex-col h-96 justify-center z-10 text-center w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-96">
+                <div className="flex flex-col h-96 justify-center z-10 text-center max-w-7xl w-full md:text-start px-10 md:px-20 xl:px-28 2xl:px-12">
                     <h1 className="text-2xl lg:text-4xl font-semibold tracking-wider text-stone-900">
                         PlayStation 5 Console
                     </h1>
